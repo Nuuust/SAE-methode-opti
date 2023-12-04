@@ -9,7 +9,8 @@ GREEN = '\033[92m' # SUCCESS
 YELLOW = '\033[93m' # INFORMATIONS
 
 
-print(BOLD+BLUE+"\n\n /*-----------------------------------*/\n\n\nChargement des données...\n*"+RESET)
+print(BOLD+BLUE+"\n\nChargement des données...\n\n*")
 df = pd.concat([chunk for chunk in tqdm(pd.read_json('./data/Video_Games.json', lines=True, chunksize=1000), desc='Loading data')])
 
-print(BLUE+'*\n\n'+YELLOW+f"Dimensions du DataFrame => {df.shape}" + RESET)
+print(BLUE+'*\n\n'+RESET+BOLD+"Dimensions du DataFrame => "+YELLOW+f"{df.shape}" + RESET)
+print(BOLD+"\nNombre de textes d'avis null => "+YELLOW+f"{df['reviewText'].isnull().sum()}"+RESET)
