@@ -36,29 +36,9 @@ for year, group in df.groupby('year'):
     
     group=group.drop_duplicates(subset=["asin","reviewerID","vote"], keep='last', inplace=True)
     if group!=None:
-        print(group)
-print("PAS DE DOUBLONS")
-
-
-
-
-###############################################################################
-###############################################################################
-######################### A   O P T I M I S E R ###############################
-###############################################################################
-###############################################################################
-
-
-# for reviewerID, group in df.groupby('asin'):
-#     group=group.drop_duplicates(subset=["asin","reviewerID","vote"], keep='last', inplace=True)
-#     if group!=None:
-#         print(group)
-# print("PAS DE DOUBLONS")
-        # if group.duplicated(subset=["asin","reviewerID","vote"], keep='last').any():
-        #     print(RED + f'Problème de doublons pour l\'ID {reviewerID}' + RESET)
-    # for bool in group.duplicated(subset=["asin"], keep='last').any():
-    #     if bool:
-    #         group.drop_duplicates(subset=["asin","reviewerID","vote"], keep='last', inplace=True)
+        print(f"{RED}Problème de doublons sur : {group}")
+    else:
+        print(f"{YELLOW}PAS DE DOUBLONS")
 
 
 print(BLUE+'*\n\n'+RESET+BOLD+"Dimensions du DataFrame => "+YELLOW+f"{df.shape}" + RESET)
