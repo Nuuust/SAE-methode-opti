@@ -1,6 +1,0 @@
-pip install tqdm
-pip install pandas
-pip install spacy
-python3 -m spacy download en_core_web_sm
-python -m spacy download en_core_web_sm
-pip install scikit-learn
